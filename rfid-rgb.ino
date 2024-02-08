@@ -15,7 +15,8 @@ int g_led = 7;
 int b_led = 8;
 byte mycard[] = {0x0E, 0xE9, 0x8A, 0xCB}; //Old Card: 0E E9 8A CB
 byte card1[] = {0x05, 0x11, 0x0F, 0x03}; // WCard : 05 11 0F 03
-// byte tag1[] = {0x5A, 0xE9, 0x04, 0x81}; //Tag: 5A E9 04 81
+byte ncard[] = {0xF3, 0xF4, 0xCE, 0xA7}; // F3 F4 CE A7
+
 Servo myservo;
 
 
@@ -46,7 +47,6 @@ void setup() {
 	mfrc522.PCD_Init();		// Init MFRC522
 	delay(4);				// Optional delay. Some board do need more time after init to be ready, see Readme
 	mfrc522.PCD_DumpVersionToSerial();	// Show details of PCD - MFRC522 Card Reader details
-	Serial.println(F("Please Scan your Card..."));
 }
 
 void loop() {
@@ -66,21 +66,16 @@ void loop() {
     if (compareUID(mfrc522.uid.uidByte, mycard, mfrc522.uid.size)) {
       // Serial.println("Authorized card !");
       lcd.clear();
-      lcd.print("   Welcome !");
-      // Serial.println(mfrc522.uid.uidByte);
-      // digitalWrite(buzzer,HIGH);
+      lcd.print("   Welcome !");h
       tone(buzzer,2000,200);
       analogWrite(r_led,0);
       analogWrite(g_led,255);
       analogWrite(b_led,0);
-      // delay(1000);
-      // noTone(buzzer);
-      // digitalWrite(buzzer,LOW);
+      delay(1000);
+      noTone(buzzer);
       myservo.write(90);
       delay(2000);
       myservo.write(0);
-      // digitalWrite(buzzer,LOW);
-      // Add your authorized action here
 
     } 
     else if (compareUID(mfrc522.uid.uidByte, card1, mfrc522.uid.size))
@@ -88,12 +83,10 @@ void loop() {
       // Serial.println("Unauthorized card !");
       lcd.clear();
       lcd.print("    Expired !"); 
-      analogWrite(r_led,255);
-      analogWrite(g_led,240);
-      analogWrite(b_led,0);
+      analogWrite(r_led,0);
+      analogWrite(g_led,0);
+      analogWrite(b_led,255);
       delay(2000);
-      // Serial.println(mfrc522.uid.uidByte);
-      // Add your unauthorized action here
     }
 
     else{
