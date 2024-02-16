@@ -21,8 +21,8 @@ ArduinoPark is an innovative project aimed at revolutionizing parking management
 
 ### Software Components:
 - Arduino IDE
-- Libraries for RFID reader (if applicable)
-- Libraries for LCD display (if applicable)
+- Libraries for RFID reader: https://downloads.arduino.cc/libraries/github.com/OSSLibraries/RFID_MFRC522v2-2.0.4.zip
+- Libraries for LCD display: https://downloads.arduino.cc/libraries/github.com/marcoschwartz/LiquidCrystal_I2C-1.1.2.zip
 
 ## Explanation:
 
