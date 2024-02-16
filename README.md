@@ -2,6 +2,8 @@
 
 ArduinoPark is an innovative project aimed at revolutionizing parking management by introducing an automated control access and management system for parking facilities. Leveraging Arduino technology, this project offers a comprehensive solution to the challenges faced in traditional parking systems, enhancing efficiency, convenience, and user experience.
 
+![Montage](images/montage.jpg)
+
 ## Ingredients:
 
 ### Hardware Components:
